@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "payload migrate:create --name initial && payload migrate && next build",
     "start": "next start"
   },
   "devDependencies": {
