@@ -7,6 +7,11 @@
     "build": "next build",
     "start": "next start"
   },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.0.0"
+  },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.82.1",
     "@payloadcms/next": "^3.82.1",
