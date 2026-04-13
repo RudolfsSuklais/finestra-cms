@@ -33,6 +33,7 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI ?? '' },
+    push: true,
   }),
   upload: { limits: { fileSize: 10_000_000 } },
   cors: [process.env.NEXT_PUBLIC_FRONTEND_URL ?? 'http://localhost:3000', 'https://finestrasolution.com', 'https://www.finestrasolution.com'],
