@@ -1,3 +1,15 @@
 import { withPayload } from '@payloadcms/next/withPayload'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-export default withPayload({})
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  serverExternalPackages: ['sharp'],
+}
+
+export default withPayload(nextConfig, {
+  configPath: path.resolve(__dirname, 'payload.config.ts'),
+})
