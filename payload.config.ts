@@ -5,11 +5,6 @@ import { Categories } from './payload/collections/Categories'
 import { Products } from './payload/collections/Products'
 import { Media } from './payload/collections/Media'
 import sharp from 'sharp'
-import path from 'path'
-import { fileURLToPath } from 'url'
-
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
@@ -29,9 +24,7 @@ export default buildConfig({
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET ?? 'fallback-dev-secret',
-  typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
-  },
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL ?? 'https://finestra-cms.vercel.app',
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI ?? '' },
   }),
