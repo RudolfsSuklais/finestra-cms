@@ -4,6 +4,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { Categories } from './payload/collections/Categories'
 import { Products } from './payload/collections/Products'
 import { Media } from './payload/collections/Media'
+import sharp from 'sharp'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -34,6 +35,7 @@ export default buildConfig({
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI ?? '' },
   }),
+  sharp,
   upload: { limits: { fileSize: 10_000_000 } },
   cors: [process.env.NEXT_PUBLIC_FRONTEND_URL ?? 'http://localhost:3000', 'https://finestrasolution.com', 'https://www.finestrasolution.com'],
   csrf: [process.env.NEXT_PUBLIC_FRONTEND_URL ?? 'http://localhost:3000', 'https://finestrasolution.com', 'https://www.finestrasolution.com'],
